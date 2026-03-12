@@ -16,7 +16,7 @@ Split:
     - Test:  20%
 """
 
-result = ReadDataset("../datasets/result/full_dataset_after_clean.parquet").read_data()
+result = ReadDataset("../datasets/result/full/full_dataset_after_clean.parquet").read_data()
 
 X = result.drop(columns=["Label", "y"])
 y = result["y"]
@@ -30,4 +30,6 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 print(f"Train: {len(X_train)} rows")
+X_train.to_parquet("../datasets/result/train_test_split/training.parquet")
 print(f"Test:  {len(X_test)} rows")
+X_test.to_parquet("../datasets/result/train_test_split/testing.parquet")

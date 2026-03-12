@@ -26,7 +26,7 @@ print(data3.head())
 
 #concat all datasets in one file result.parquet for ml
 df = pd.concat([data1, data2, data3], ignore_index=True)
-df.to_parquet("../datasets/result/full_dataset_before_clean.parquet")
+df.to_parquet("../datasets/result/full/full_dataset_before_clean.parquet")
 
 #normalization result dataset based on the analysis from the bachelor's thesis
 #leave only 15 columns for further machine training
@@ -50,7 +50,12 @@ print(result.head())
 
 #cleaning full dataset(deleting rows with Infinity/NaN/Null columns)
 result = result.replace([np.inf, -np.inf], np.nan).dropna()
-result.to_parquet("../datasets/result/full_dataset_after_clean.parquet")
+
+#cleaning full dataset(deleting rows with negative columns
+numeric_cols = result.select_dtypes(include=[np.number]).columns
+result = result[(result[numeric_cols] >= 0).all(axis=1)]
+
+result.to_parquet("../datasets/result/full/full_dataset_after_clean.parquet")
 print("full_dataset_after_clean.parquet")
 result.info()
 
