@@ -36,4 +36,18 @@
             -  y
 
 ### TODO: 
-    
+    1. Clean result dataset(delete rows with emty columns)
+
+# 11.03.2026
+### Done:
+    1. Clean result dataset(delete rows with emty columns)
+    2. Fix cancatination of datasets
+    3. Prepare datasets to train dataset(80%) and test(datasets)
+
+### TODO:
+    1. Normalize data
+    2. Solution problem of disbalance( SMOTE )
+    3. Learn ML
+        Algoritms:
+        - RandomForest
+        - LightGBM
