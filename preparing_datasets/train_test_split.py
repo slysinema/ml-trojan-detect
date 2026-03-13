@@ -15,7 +15,8 @@ Split:
     - Train: 80%
     - Test:  20%
 """
-def preparing_train_test_split(result: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+
+def preparing_train_test_split(result: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
     X = result.drop(columns=["Label", "y"])
     y = result["y"]
 

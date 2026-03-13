@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from preparing.read_dataset import ReadDataset
+from preparing_datasets.read_dataset import ReadDataset
 
 def concat_datasets() -> pd.DataFrame:
     data1 = ReadDataset("../datasets/raw/Benign-Monday-no-metadata.parquet").read_data()

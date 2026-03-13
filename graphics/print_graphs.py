@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from preparing.normalization_scallers import min_max_scaler, standard_scaler
-from preparing.read_dataset import ReadDataset
+from preparing_datasets.normalization_scalers import min_max_scaler, standard_scaler
+from preparing_datasets.read_dataset import ReadDataset
 
 def create_comparison_plot(data_original: pd.DataFrame, data_normalized: pd.DataFrame, x_col: str, y_col: str, title_original: str, title_normalized: str,) -> plt.Figure:
     fig, axes = plt.subplots(2, 1, figsize=(12, 10))
