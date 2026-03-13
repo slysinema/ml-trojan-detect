@@ -51,3 +51,16 @@
         Algoritms:
         - RandomForest
         - LightGBM
+
+# 12.03.2026
+### Done:
+    1. Added normalization scallers function: min_max_scaler(), standard_scaler()
+    2. Add new function for print graphics:
+        - Take the logarithm of values that are included in the graph for clarity
+        - Use matplotlib library for the image
+    3. Small fixes for datasets(they where having negative values in rows):
+        - deleted
+
+### TODO:
+    1. Use SMOTE alghoritm with a ready-made dataset
+    2. ML training
