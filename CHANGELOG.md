@@ -62,5 +62,16 @@
         - deleted
 
 ### TODO:
-    1. Use SMOTE alghoritm with a ready-made dataset
+    1. Use SMOTE algorithm with a ready-made dataset
     2. ML training
+
+# 13.03.2026
+
+### Done: 
+    1. Use SMOTE algorithm
+    2. Make script for full automatic preparing datasets
+    3. Code refactoring: 
+        - all code for preparing in a functions
+
+### TODO: 
+    1. ML training
