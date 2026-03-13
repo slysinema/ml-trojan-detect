@@ -1,5 +1,5 @@
+import pandas as pd
 from sklearn.model_selection import train_test_split
-from preparing.read_dataset import ReadDataset
 
 """
 Data Preparation Module
@@ -15,21 +15,16 @@ Split:
     - Train: 80%
     - Test:  20%
 """
+def preparing_train_test_split(result: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    X = result.drop(columns=["Label", "y"])
+    y = result["y"]
 
-result = ReadDataset("../datasets/result/full/full_dataset_after_clean.parquet").read_data()
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y,
+        test_size=0.2,
+        random_state=11,
+        shuffle=True,
+        stratify=y
+    )
 
-X = result.drop(columns=["Label", "y"])
-y = result["y"]
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y,
-    test_size=0.2,
-    random_state=11,
-    shuffle=True,
-    stratify=y
-)
-
-print(f"Train: {len(X_train)} rows")
-X_train.to_parquet("../datasets/result/train_test_split/training.parquet")
-print(f"Test:  {len(X_test)} rows")
-X_test.to_parquet("../datasets/result/train_test_split/testing.parquet")
+    return X_train, X_test, y_train, y_test
