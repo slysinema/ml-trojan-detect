@@ -75,3 +75,18 @@
 
 ### TODO: 
     1. ML training
+
+# 14.03.2026
+
+### Done:
+    1. Trained and evaluated ML models: Random Forest and LightGBM on Z-score normalized data
+    2. Implemented Threshold Tuning (set threshold to 0.90) to solve the False Positives problem and increase Precision
+    3. Created a universal function train_and_evaluate_model() for training, predicting, and metric calculation
+    4. Added automatic generation and saving of Confusion Matrix graphics (heatmaps) using seaborn and matplotlib
+    5. Refactored ML training scripts (added English docstrings, clean prints, and modular structure)
+    6. Created and executed a parallel training pipeline for Min-Max normalized data (`train_min_max.py`)
+
+### TODO: 
+    1. Analyze and compare the performance (Accuracy, Precision, Recall, Time) between Z-score and Min-Max results
+    2. Start writing Chapter 5 (Vyhodnotenie / Evaluation) in the thesis using the collected metrics and saved confusion matrices
+    3. Formulate the final conclusion about which model and preprocessing method is best for Real-time IDS
