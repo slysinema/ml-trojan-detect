@@ -90,3 +90,18 @@
     1. Analyze and compare the performance (Accuracy, Precision, Recall, Time) between Z-score and Min-Max results
     2. Start writing Chapter 5 (Vyhodnotenie / Evaluation) in the thesis using the collected metrics and saved confusion matrices
     3. Formulate the final conclusion about which model and preprocessing method is best for Real-time IDS
+
+# 15.03.2026
+
+### Done: 
+    1. Saved trained ML models (Random Forest and LightGBM) to disk using `joblib` for future deployment.
+    2. Designed and implemented the Server-side architecture (IDS Engine) using `FastAPI`.
+    3. Created a Pydantic data model (`NetworkPacket`) to handle incoming network traffic data (15 features).
+    4. Implemented a `POST /analyze` API endpoint that processes data through both models and returns raw Trojan probabilities.
+    5. Tested the server successfully using FastAPI's built-in Swagger UI.
+    6. Applied the "Separation of Concerns" principle: Server acts as a "dumb oracle" returning probabilities, moving the threshold/blocking logic to the client side.
+### TODO:
+    1. Finish writing the practical part (Chapter 5 / Vyhodnotenie) of the thesis.
+    2. Implement the Client (Sensor) script to simulate real-time network traffic using test `.parquet` datasets.
+    3. Add the threshold-based blocking logic to the Client script and test the full Server-Client interaction.
+
