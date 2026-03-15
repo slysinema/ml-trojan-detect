@@ -1,12 +1,15 @@
 import os
 import time
+
+import joblib
 import pandas as pd
 from matplotlib import pyplot as plt
 from sklearn.metrics import classification_report, confusion_matrix
 import seaborn as sns
 
 def train_and_evaluate_model(model_name: str, model, X_train: pd.DataFrame, X_test: pd.DataFrame,
-                             y_train: pd.DataFrame, y_test: pd.DataFrame, threshold: float = 0.5, save_dir: str = None):
+                             y_train: pd.DataFrame, y_test: pd.DataFrame, threshold: float = 0.5,
+                             save_dir: str = None, model_save_dir: str = None):
     """
     Trains a machine learning model, evaluates its performance with a custom threshold,
     and generates a confusion matrix heatmap.
@@ -33,6 +36,16 @@ def train_and_evaluate_model(model_name: str, model, X_train: pd.DataFrame, X_te
 
     # Train the model
     model.fit(X_train, y_train.values.ravel())
+
+    # Save train model
+    if model_save_dir:
+        os.makedirs(model_save_dir, exist_ok=True)
+        clean_name = model_name.lower().replace(" ", "_")
+        model_path = f"{model_save_dir}/{clean_name}.joblib"
+
+        # Сохраняем модель на диск
+        joblib.dump(model, model_path)
+        print(f"[MODEL] - Trained model saved to: {model_path}")
 
     # Get probabilities for the positive class (Trojan = 1) and apply the custom threshold
     y_probs = model.predict_proba(X_test)[:, 1]

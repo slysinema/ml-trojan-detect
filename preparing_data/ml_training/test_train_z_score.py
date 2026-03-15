@@ -15,7 +15,7 @@ Confusion matrices are automatically generated and saved for visual analysis.
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from lightgbm import LGBMClassifier
-from ml_training.train_and_evaluate_model import train_and_evaluate_model
+from preparing_data.ml_training.train_and_evaluate_model import train_and_evaluate_model
 
 
 def main():
@@ -31,6 +31,7 @@ def main():
     y_test = pd.read_parquet("../datasets/processed/labels/y_test.parquet")
 
     graphics_save_dir = "../graphics/train"
+    models_save_dir = "trained_models/"
 
     print(f"[INFO] Data successfully loaded! Graphs will be saved to: {graphics_save_dir}\n")
     print("=" * 60)
@@ -41,7 +42,7 @@ def main():
 
     # Train and evaluate Random Forest
     train_and_evaluate_model("Random Forest", rf_model, X_train, X_test, y_train, y_test, threshold=0.5,
-                             save_dir=graphics_save_dir)
+                             save_dir=graphics_save_dir, model_save_dir=models_save_dir)
     train_and_evaluate_model("Random Forest", rf_model, X_train, X_test, y_train, y_test, threshold=0.90,
                              save_dir=graphics_save_dir)
 
@@ -49,7 +50,7 @@ def main():
 
     # Train and evaluate LightGBM
     train_and_evaluate_model("LightGBM", lgbm_model, X_train, X_test, y_train, y_test, threshold=0.50,
-                             save_dir=graphics_save_dir)
+                             save_dir=graphics_save_dir, model_save_dir=models_save_dir)
     train_and_evaluate_model("LightGBM", lgbm_model, X_train, X_test, y_train, y_test, threshold=0.90,
                              save_dir=graphics_save_dir)
 

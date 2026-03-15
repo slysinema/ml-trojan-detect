@@ -15,7 +15,7 @@ Confusion matrices are automatically generated and saved for visual analysis.
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from lightgbm import LGBMClassifier
-from ml_training.train_and_evaluate_model import train_and_evaluate_model
+from preparing_data.ml_training.train_and_evaluate_model import train_and_evaluate_model
 
 def main():
     """

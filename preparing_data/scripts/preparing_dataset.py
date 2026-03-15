@@ -1,9 +1,9 @@
 import os
 
-from preparing_datasets.concat_datasets import concat_datasets
-from preparing_datasets.train_test_split import preparing_train_test_split
-from preparing_datasets.normalization_scalers import standard_scaler, min_max_scaler
-from preparing_datasets.smote_data import apply_smote
+from preparing_data.preparing_datasets.concat_datasets import concat_datasets
+from preparing_data.preparing_datasets.train_test_split import preparing_train_test_split
+from preparing_data.preparing_datasets.normalization_scalers import standard_scaler, min_max_scaler
+from preparing_data.preparing_datasets.smote_data import apply_smote
 
 # Step 1: Load and concat datasets
 result = concat_datasets()
