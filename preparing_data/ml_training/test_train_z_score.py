@@ -64,7 +64,6 @@ def main():
         n_estimators=100,
         n_jobs=-1,
         random_state=42,
-        use_label_encoder=False,
         eval_metric="logloss"
     )
 
