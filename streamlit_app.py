@@ -202,12 +202,19 @@ if uploaded_file is not None:
         col2.metric("🟢 Benign", n_benign)
         col3.metric("🔴 Trojan", n_trojan)
 
-        # ── Bar chart for the first row ───────────────────────────
+        # ── Bar chart with row selector ───────────────────────────
         if len(results_df) > 0:
-            st.markdown("### 📈 Model Probabilities — First Packet")
-            first = results_df.iloc[0]
+            st.markdown("### 📈 Model Probabilities")
+            selected_row = st.number_input(
+                "Select packet row to inspect:",
+                min_value=0,
+                max_value=len(results_df) - 1,
+                value=0,
+                step=1,
+            )
+            row_data = results_df.iloc[selected_row]
             model_labels = list(MODEL_DISPLAY.values())
-            probs = [first[label] for label in model_labels]
+            probs = [row_data[label] for label in model_labels]
 
             colors = [
                 "#ef4444" if p >= threshold else "#22c55e"
